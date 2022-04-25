@@ -15,6 +15,7 @@ const Stack = createStackNavigator();
 
 export default function App() {
 
+  // react hook
   let [fontsLoaded] = useFonts({
     'OpenSans': require('./assets/fonts/OpenSans-Regular.ttf'),
   });
@@ -25,7 +26,6 @@ export default function App() {
   else {
     return (
       <NavigationContainer
-        style={{ paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0 }}
         ref={navigationRef}
       >
         <StatusBar translucent backgroundColor="transparent" />
