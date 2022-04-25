@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import { navigationRef } from './RootNavigation';
 import NewsDetail from './components/NewsDetail';
 import AboutGlobo from './components/About';
+import Quotepage from './components/Quote';
 
 
 const Stack = createStackNavigator();
@@ -58,6 +59,13 @@ export default function App() {
             component={AboutGlobo}
             options={{
               header: () => <Header headerDisplay="About Us" />
+            }}
+          />
+          <Stack.Screen
+            name='Quotes'
+            component={Quotepage}
+            options={{
+              header: () => <Header headerDisplay="Quotes" />
             }}
           />
   
