@@ -37,7 +37,7 @@ export default function NewsDetail({route, navigation}) {
                             source={{uri: selectedPost.urlToImage}}
                             style={styles.storyImage} 
                         />
-                        <Text style={styles.articleAuthor}>Written by {selectedPost.author}</Text>
+                        {selectedPost.author ? (<Text style={styles.articleAuthor}>Written by {selectedPost.author}</Text>) : (<Text></Text>)}
                         <Text style={styles.blurb}> {selectedPost.description} </Text>
                         <Text style={styles.content}> {selectedPost.content} </Text>
                     </ScrollView>
