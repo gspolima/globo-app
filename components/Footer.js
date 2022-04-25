@@ -15,7 +15,7 @@ export default function Footer() {
 
             <TouchableOpacity
                 style={styles.button}
-                // onPress={() => RootNavigation.navigate('Globomantics')}
+                onPress={() => RootNavigation.navigate('About')}
             >
                 <Text>About</Text>
             </TouchableOpacity>
