@@ -9,10 +9,10 @@ export default function Homepage({navigation}) {
     const [newsData, setData] = useState([]);
 
     useEffect(() => {
-        fetch('https://newsapi.org/v2/everything?q=tech&apiKey=1aea81ed76ea4123b23c9c26efddde2f')
+        fetch('https://newsapi.org/v2/top-headlines?country=br&apiKey=1aea81ed76ea4123b23c9c26efddde2f')
             .then((responseBody) => responseBody.json())
             .then((json) => setData(json.articles))
-            .catch((error) => console.error('An error occurred: ', error))
+            .catch((error) => console.error('An error occurred in Home: ', error))
             .finally(() => { 
                 finishLoading(false);
             });
@@ -32,6 +32,7 @@ export default function Homepage({navigation}) {
                         source={{uri: item.urlToImage}}
                     />
                     <Text style={styles.blurb}> {item.description} </Text>
+                    <Text style={styles.articleSource} >From {item.source.name}</Text>
                 </View>
 
             </TouchableWithoutFeedback>
@@ -72,11 +73,18 @@ const styles = StyleSheet.create({
     },
     title: {
         paddingBottom: 10,
+        fontSize: 16,
         fontFamily: 'OpenSans',
         fontWeight: 'bold'
     },
     blurb: {
         fontFamily: 'OpenSans',
-        fontStyle: 'italic'
+        fontStyle: 'normal'
+    },
+    articleSource: {
+        color: 'blue',
+        fontSize: 11,
+        fontWeight: '400',
+        paddingTop: 5
     }
 });
