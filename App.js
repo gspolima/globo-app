@@ -7,6 +7,8 @@ import { Platform } from 'react-native';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import Header from './components/Header';
+import Footer from './components/Footer';
+import { navigationRef } from './RootNavigation';
 
 
 const Stack = createStackNavigator();
@@ -23,10 +25,9 @@ export default function App() {
   else {
     return (
       <NavigationContainer
-        // did not work
         style={{ paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0 }}
+        ref={navigationRef}
       >
-        {/* works fine */}
         <StatusBar translucent backgroundColor="transparent" />
         
         <Stack.Navigator 
@@ -45,6 +46,7 @@ export default function App() {
           />
   
         </Stack.Navigator>
+        <Footer/>
       </NavigationContainer>
     );
   }
